@@ -1,0 +1,41 @@
+{% load bootstrap4 %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Super Chat</title>
+    {% bootstrap_css %}
+</head>
+<body>
+<div class="container">
+    <h1><span class="badge badge-primary">Seja bem vindo(a) ao Chat da Vivi</span></h1><br/>
+    Qual sala de chat você gostaria de entrar<br/>
+    <input id="nome_sala" name="nome_sala" type="text" size="100" placeholder="Nome da sala..."><br/><br/>
+    {% buttons %}
+        <input id="botao" class="btn btn-primary" type="button" value="Entrar" />
+    {% endbuttons %}
+</div>
+<script>
+
+    document.querySelector('#nome_sala').focus();
+    document.querySelector('#nome_sala').onkeyup = function(e){
+        if(e.keyCode === 13){
+            document.querySelector('#botao').click();
+        }
+    };
+
+    document.querySelector('#botao').onclick = function(e){
+        var nome_sala = document.querySelector('#nome_sala').value;
+        if(nome_sala != ""){
+            window.location.pathname = '/chat/' + nome_sala + '/';
+        }else{
+            alert('Você precisa informar o nome da sala.');
+            document.querySelector('#nome_sala').focus();
+        }
+
+    };
+
+</script>
+{% bootstrap_javascript jquery='full' %}
+</body>
+</html>
