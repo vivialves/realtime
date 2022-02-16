@@ -1,1 +1,1 @@
-# an application in real time using Redis DATABASE and Javascript.
+# An application in real time using Redis DATABASE and Javascript.
